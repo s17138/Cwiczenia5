@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Zad7.Models.DTO
 {
-    public class SomeSortOfCountry
+    public class ResponseCountry
     {
         public string Name { get; set; }
     }

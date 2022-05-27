@@ -8,7 +8,9 @@ namespace Zad7.Services
 {
     public interface IDbService
     {
-        Task<IEnumerable<SomeSortOfTrip>> GetTrips();
+        Task<IEnumerable<ResponseTrip>> GetTrips();
         Task RemoveTrip(int id);
+        Task<bool> RemoveClient(int id);
+        Task<bool> AssignClientToTrip(int idTrip, RequestClient client);
     }
 }

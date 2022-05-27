@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Zad7.Models.DTO;
 using Zad7.Services;
 
 namespace Zad7.Controllers
@@ -32,6 +33,20 @@ namespace Zad7.Controllers
         {
             await _dbService.RemoveTrip(id);
             return Ok("Removed Trip");
+        }
+
+        [HttpPost]
+        [Route("{idTrip}/clients")]
+        public async Task<IActionResult> AsssignClientToTrip(int idTrip, RequestClient client)
+        {
+            var result = await _dbService.AssignClientToTrip(idTrip, client);
+            if (result)
+            {
+                return Ok("Assigned Sucesfully");
+            } else
+            {
+                return BadRequest();
+            }
         }
     }
 }
